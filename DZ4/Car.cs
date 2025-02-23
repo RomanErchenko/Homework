@@ -11,22 +11,22 @@ namespace DZ4
         private int DoorAmount { get; set; }
         private double EngineVolume { get; set; }
         private string Model { get; set; }
-        private string ModelMark { get; set; }
-        private string Colour { get; set; }
+        public string ModelMark { get; init; }
+        public string Colour { get; init; }
         private string FuelType { get; set; }
-        private Transmission Transmission { get; set; }
-        public Radio Radio { get; set; }
+        public Transmission Transmission { get; set; }
+        public Radio RadiO { get; set; }
 
-        public Car(int DoorAmount,double EngineVolume,string Model,string ModelMark,string Colour,string FuelType, Transmission Transmission)
+        public Car(int DoorAmount,double EngineVolume,string Model,string FuelType)
         { 
          this.DoorAmount = DoorAmount;
          this.EngineVolume = EngineVolume;
          this.Model = Model;
-         this.ModelMark = ModelMark;
-         this.Colour = Colour;
+         //this.ModelMark = ModelMark;
+         //this.Colour = Colour;
          this.FuelType = FuelType;
-         this.Transmission = Transmission;
-          Radio = new Radio();
+         //this.Transmission = Transmission;
+          RadiO = new Radio();
         }
         public virtual void EnginePower()
         {
@@ -37,7 +37,7 @@ namespace DZ4
         {
             Console.WriteLine("Mechanical start by rotation key");
         }
-        public virtual void Stop()
+        public  void Stop()
         {
             Console.WriteLine("Mechanical stop by rotation key");
         }
@@ -46,7 +46,7 @@ namespace DZ4
             Console.WriteLine("Window washing");
         }
 
-        public void Show()
+        public virtual void Show()
         {
             Console.WriteLine(DoorAmount);
             Console.WriteLine(EngineVolume);

@@ -8,13 +8,8 @@ namespace DZ4
 {
     public class SportCar:Car
     {
-        public SportCar(int DoorAmount,double EngineVolume,string Model,string ModelMark,string Colour,string FuelType,Transmission Transmission) :base( DoorAmount,EngineVolume,Model,ModelMark,Colour,FuelType,Transmission)
+        public SportCar(int DoorAmount,double EngineVolume,string Model,string FuelType) :base( DoorAmount,EngineVolume,Model,FuelType)
         {
-            Accelerate();
-            EnginePower();
-            Start();
-            Stop();
-            Show();
         }
         public override void Accelerate()
         {
@@ -28,10 +23,7 @@ namespace DZ4
         {
             Console.WriteLine("Automatic start from button");
         }
-        public override void Stop()
-        {
-            Console.WriteLine("Automatic start from button");
-        }
+       
         
     }
 }

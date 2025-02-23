@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,13 +10,8 @@ namespace DZ4
 {
     public class MiniVan:Car
     {
-        public MiniVan(int DoorAmount, double EngineVolume, string Model, string ModelMark, string Colour, string FuelType, Transmission Transmission) : base(DoorAmount, EngineVolume, Model, ModelMark, Colour, FuelType, Transmission)
+        public MiniVan(int DoorAmount, double EngineVolume, string Model,string FuelType) : base(DoorAmount, EngineVolume, Model,FuelType)
         {
-            Accelerate();
-            EnginePower();
-            Start();
-            Stop();
-            Show();
         }
         public override void Accelerate()
         {
@@ -27,8 +24,8 @@ namespace DZ4
 
         public void TurnOnRadio()
         { 
-         Radio.Condition=true;
-         if (Radio.Condition == true)
+         RadiO.Condition=true;
+         if (RadiO.Condition == true)
             {
                 Console.WriteLine("Radion is on");
             }
@@ -36,11 +33,12 @@ namespace DZ4
         }
         public void TurnOFFRadio()
         {
-            Radio.Condition = false;
-            if (Radio.Condition == true)
+            RadiO.Condition = false;
+            if (RadiO.Condition != true)
             {
                 Console.WriteLine("Radion is off");
             }
         }
+       
     }
 }
