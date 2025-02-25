@@ -9,6 +9,14 @@ namespace DZ4
     public class Radio
     {
         public bool Condition { get; set; }
-        public string MarkOfRadio { get; set; }
+        private string markOfRadio;
+        public Radio(string markOfRadio)
+        {
+         this.markOfRadio=markOfRadio;
+        }
+        public string MarkOfRadio
+        {
+            get { return markOfRadio; }
+        }
     }
 }

@@ -23,7 +23,24 @@ namespace DZ4
         {
             Console.WriteLine("Automatic start from button");
         }
-       
-        
+
+        public void TurnOnRadio()
+        {
+            Radio.Condition = true;
+            if (Radio.Condition == true)
+            {
+                Console.WriteLine("Radion is on");
+            }
+
+        }
+        public void TurnOFFRadio()
+        {
+            Radio.Condition = false;
+            if (Radio.Condition != true)
+            {
+                Console.WriteLine("Radion is off");
+            }
+        }
+
     }
 }

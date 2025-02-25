@@ -8,25 +8,40 @@ namespace DZ4
 {
     public abstract class Car
     {
-        private int DoorAmount { get; set; }
-        private double EngineVolume { get; set; }
-        private string Model { get; set; }
+        private int doorAmount;
+        private double engineVolume;
+        private string model;
+        private string fuelType;
         public string ModelMark { get; init; }
-        public string Colour { get; init; }
-        private string FuelType { get; set; }
-        public Transmission Transmission { get; set; }
-        public Radio RadiO { get; set; }
+        public string Colour { get; set; }
+        public Transmission Transmission { get; init; }
+        public Radio Radio { get; set; }
 
-        public Car(int DoorAmount,double EngineVolume,string Model,string FuelType)
+        public int DoorAmount
         { 
-         this.DoorAmount = DoorAmount;
-         this.EngineVolume = EngineVolume;
-         this.Model = Model;
-         //this.ModelMark = ModelMark;
-         //this.Colour = Colour;
-         this.FuelType = FuelType;
-         //this.Transmission = Transmission;
-          RadiO = new Radio();
+          get { return doorAmount; }
+        }
+        public double EngineVolume
+        {
+            get { return engineVolume; }
+        }
+        public string Model
+        {
+            get { return model; }
+        }
+        public string FuelType
+        {
+            get { return fuelType; }
+        }
+
+        public Car(int doorAmount, double engineVolume, string model, string fuelType)
+        { 
+         this.doorAmount = doorAmount;
+         this.engineVolume = engineVolume;
+         this.model = model;
+         this.fuelType = fuelType;
+         
+          
         }
         public virtual void EnginePower()
         {
