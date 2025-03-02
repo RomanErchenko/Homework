@@ -80,7 +80,7 @@ class Program
             YearOfProduce = 1853
         };
 
-        Library lib = new Library();
+        Library lib = Library.Check();
         lib.Add(book1);
         lib.Add(book2);
         lib.Add(book3);
@@ -91,9 +91,15 @@ class Program
         lib.Add(book8);
         Console.WriteLine(new string('-', 30));
         //lib.Show();
-        Console.WriteLine(lib[0]);
+       // Console.WriteLine(lib[0]);
         Console.WriteLine(new string('-', 30));
-        Console.WriteLine(lib["Вино з кульбаб"]);
+        Book l = lib["Вино з кульбаб"];
+        if (l != null)
+        {
+            Console.WriteLine(l.Name + " - " + l.Author + " - " + l.Anotation + " - " + l.Pages + " - " + l.Genre + " - " + l.YearOfProduce);
+
+        }
+        else { Console.WriteLine("немае книжки"); }
         Console.ReadKey();
     }
 }

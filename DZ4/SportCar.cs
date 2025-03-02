@@ -8,7 +8,8 @@ namespace DZ4
 {
     public class SportCar:Car
     {
-        public SportCar(int DoorAmount,double EngineVolume,string Model,string FuelType) :base( DoorAmount,EngineVolume,Model,FuelType)
+        public SportCar(int DoorAmount,double EngineVolume,string Model,string FuelType)
+        :base( DoorAmount,EngineVolume,Model,FuelType)
         {
         }
         public override void Accelerate()
@@ -33,7 +34,7 @@ namespace DZ4
             }
 
         }
-        public void TurnOFFRadio()
+        public void TurnOffRadio()
         {
             Radio.Condition = false;
             if (Radio.Condition != true)

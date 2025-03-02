@@ -8,15 +8,14 @@ namespace DZ4
 {
     public class Radio
     {
-        public bool Condition { get; set; }
-        private string markOfRadio;
-        public Radio(string markOfRadio)
+        public class NeastedRadio
         {
-         this.markOfRadio=markOfRadio;
-        }
-        public string MarkOfRadio
-        {
-            get { return markOfRadio; }
+            public bool Condition { get; set; }
+            public string MarkOfRadio { get; }
+            public NeastedRadio(string MarkOfRadio)
+            {
+                this.MarkOfRadio = MarkOfRadio;
+            }
         }
     }
 }

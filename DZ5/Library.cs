@@ -10,33 +10,32 @@ namespace DZ5
     {
         //Створюемо приватний масив
         private Book[] books = new Book[100];
-        public string this[int index]
+        private static Library check=null;
+        protected Library()
+        { }
+        public static Library Check()
         {
-            get
+            if (check == null)
             {
-                if (index >= 0 && index < books.Length)
-                    return books[index].Name + " - " + books[index].Author + " - " + books[index].Anotation + " - " + books[index].Pages + " - " + books[index].Genre + " - " + books[index].YearOfProduce;
-                else
-                    return "Спроба звернення за межі бібліотекі.";
+                check = new Library();
             }
+            
+             return check; 
         }
-        public string this[string index]
+        public Book this[string index]
         {
             get
             {
-                for (int i = 0; i < books.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    if (i == count)
-                    { 
-                    break;
-                    }
+                    
                     if (index == books[i].Name)
                     {
-                        return books[i].Name + " - " + books[i].Author + " - " + books[i].Anotation + " - " + books[i].Pages + " - " + books[i].Genre + " - " + books[i].YearOfProduce;
+                        return books[i];
 
                     }
                 }
-                return "Немае книжки.";
+                return null;
             }
         }
         private int count = 0;

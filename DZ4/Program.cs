@@ -29,7 +29,7 @@ namespace DZ4
               Colour="blue",
               Transmission=Transmission.Robot 
             };
-            sportCar.Radio = new Radio("Sport car Radio");
+            sportCar.Radio = new Radio.NeastedRadio("Sport car Radio");
             Console.WriteLine(new string('-',33));
             MiniVan minivan = new MiniVan(4, 1.4, "Cooper", "fueloil")
             {
@@ -37,14 +37,14 @@ namespace DZ4
                 Colour = "green",
                 Transmission = Transmission.Automatic, 
             };
-            minivan.Radio = new Radio("Minivan cooper Radio");
+            minivan.Radio = new Radio.NeastedRadio("Minivan cooper Radio");
             MiniVan miniVan = new MiniVan(2, 1.2, "Citroen", "gazoline")
             {
                 ModelMark = "Hachback",
                 Colour = "red",
                 Transmission = Transmission.Automatic
             };
-            miniVan.Radio = new Radio("Minivan citroen Radio");
+            miniVan.Radio = new Radio.NeastedRadio("Minivan citroen Radio");
             Car[] Holder=new Car[3];
             Holder[0]=sportCar;
             Holder[1]=minivan;
@@ -72,12 +72,12 @@ namespace DZ4
                 if (Holder[i] is MiniVan)
                 {
                     MiniVan v = (MiniVan)Holder[i];
-                    v.TurnOFFRadio();
+                    v.TurnOffRadio();
                 }
                 if (Holder[i] is SportCar)
                 {
                     SportCar v = (SportCar)Holder[i];
-                    v.TurnOFFRadio();
+                    v.TurnOffRadio();
                 }
                 Console.WriteLine(new string('-', 33));
                 Holder[i].Stop();
