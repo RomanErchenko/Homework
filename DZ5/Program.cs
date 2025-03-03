@@ -91,7 +91,6 @@ class Program
         lib.Add(book8);
         Console.WriteLine(new string('-', 30));
         //lib.Show();
-       // Console.WriteLine(lib[0]);
         Console.WriteLine(new string('-', 30));
         Book l = lib["Вино з кульбаб"];
         if (l != null)

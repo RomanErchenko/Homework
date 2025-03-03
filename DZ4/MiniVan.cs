@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DZ4
 {
-    public class MiniVan:Car
+    public class MiniVan: Car
     {
-        public MiniVan(int doorAmount, double engineVolume, string model,string fuelType)
-        : base(doorAmount, engineVolume, model,fuelType)
+        public MiniVan(int doorAmount, double engineVolume, string model, string fuelType)
+        : base(doorAmount, engineVolume, model, fuelType)
         {
         }
         public override void Accelerate()

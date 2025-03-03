@@ -15,7 +15,7 @@ namespace DZ4
         public string ModelMark { get; init; }
         public string Colour { get; set; }
         public Transmission Transmission { get; init; }
-        public Radio.NeastedRadio Radio { get; set; }
+        public NeastedRadio Radio { get; set; }
 
 
         public Car(int DoorAmount, double EngineVolume, string Model, string FuelType)
@@ -55,6 +55,15 @@ namespace DZ4
             Console.WriteLine(FuelType);
             Console.WriteLine(Transmission);
 
+        }
+        public class NeastedRadio
+        {
+            public bool Condition { get; set; }
+            public string MarkOfRadio { get; }
+            public NeastedRadio(string MarkOfRadio)
+            {
+                this.MarkOfRadio = MarkOfRadio;
+            }
         }
     }
 }

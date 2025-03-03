@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DZ4
 {
-    public class SportCar:Car
+    public class SportCar: Car
     {
-        public SportCar(int DoorAmount,double EngineVolume,string Model,string FuelType)
-        :base( DoorAmount,EngineVolume,Model,FuelType)
+        public SportCar(int DoorAmount, double EngineVolume, string Model, string FuelType)
+        :base( DoorAmount, EngineVolume, Model, FuelType)
         {
         }
         public override void Accelerate()
