@@ -31,7 +31,6 @@ namespace DZ6
 
     class Program
     {
-
         static void Main(string[] args)
         {
             Point A = new Point(3,4);
