@@ -8,12 +8,10 @@ namespace DZ5
 {
     public class BooksWithImages : Book
     {
-        public byte Images { get; set; }
+        public byte? Images { get; set; }
         public BooksWithImages(string Name, string Author) : base(Name, Author)
         {
 
         }
-
-
     }
 }

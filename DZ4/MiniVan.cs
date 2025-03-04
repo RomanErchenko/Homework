@@ -10,8 +10,8 @@ namespace DZ4
 {
     public class MiniVan: Car
     {
-        public MiniVan(int doorAmount, double engineVolume, string model, string fuelType)
-        : base(doorAmount, engineVolume, model, fuelType)
+        public MiniVan(int doorAmount, double engineVolume, string model, string fuelType, string MarkOfRadio)
+        : base(doorAmount, engineVolume, model, fuelType, MarkOfRadio)
         {
         }
         public override void Accelerate()
@@ -22,24 +22,5 @@ namespace DZ4
         {
            base.EnginePower();
         }
-
-        public void TurnOnRadio()
-        { 
-         Radio.Condition=true;
-         if (Radio.Condition == true)
-            {
-                Console.WriteLine("Radion is on");
-            }
-        
-        }
-        public void TurnOffRadio()
-        {
-            Radio.Condition = false;
-            if (Radio.Condition != true)
-            {
-                Console.WriteLine("Radion is off");
-            }
-        }
-       
     }
 }

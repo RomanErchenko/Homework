@@ -10,18 +10,6 @@ namespace DZ5
     {
         //Створюемо приватний масив
         private Book[] books = new Book[100];
-        private static Library check=null;
-        protected Library()
-        { }
-        public static Library Check()
-        {
-            if (check == null)
-            {
-                check = new Library();
-            }
-            
-             return check; 
-        }
         public Book this[string name]
         {
             get
@@ -65,21 +53,6 @@ namespace DZ5
             books[count] = book;
             count++;
             BubbleSortBooks(books);
-        }
-        public void Add(BooksWithImages mybook)
-        {
-            Book book = (Book)mybook;
-            for (int i = 0; i < books.Length; i++)
-            {
-                if (books[i] == null)
-                {
-                    books[i] = book;
-                }
-            }
-            if (books.Length > 1)
-            {
-                BubbleSortBooks(books);
-            }
         }
         public void Show()
         {

@@ -80,7 +80,7 @@ class Program
             YearOfProduce = 1853
         };
 
-        Library lib = Library.Check();
+        Library lib = new Library();
         lib.Add(book1);
         lib.Add(book2);
         lib.Add(book3);

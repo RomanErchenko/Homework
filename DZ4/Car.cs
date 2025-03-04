@@ -15,16 +15,16 @@ namespace DZ4
         public string ModelMark { get; init; }
         public string Colour { get; set; }
         public Transmission Transmission { get; init; }
-        public NeastedRadio Radio { get; set; }
+        public Radio CarRadio { get; set; }
 
 
-        public Car(int DoorAmount, double EngineVolume, string Model, string FuelType)
+        public Car(int DoorAmount, double EngineVolume, string Model, string FuelType,string MarkOfRadio)
         { 
          this.DoorAmount = DoorAmount;
          this.EngineVolume = EngineVolume;
          this.Model = Model;
          this.FuelType = FuelType;
-         
+         CarRadio = new Radio(MarkOfRadio);
           
         }
         public virtual void EnginePower()
@@ -56,13 +56,29 @@ namespace DZ4
             Console.WriteLine(Transmission);
 
         }
-        public class NeastedRadio
+        public class Radio
         {
             public bool Condition { get; set; }
             public string MarkOfRadio { get; }
-            public NeastedRadio(string MarkOfRadio)
+            public Radio(string MarkOfRadio)
             {
                 this.MarkOfRadio = MarkOfRadio;
+            }
+            public void TurnOnRadio()
+            {
+                    Condition = true;
+                if (Condition == true)
+                {
+                    Console.WriteLine("Radion is on");
+                }
+            }
+            public void TurnOffRadio()
+            {
+                    Condition = false;
+                if (Condition != true)
+                {
+                    Console.WriteLine("Radion is off");
+                }
             }
         }
     }

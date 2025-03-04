@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dz7
 {
-    public struct Point
+    public struct Points
     {
         private int x;
         private int y;
-        public Point(int x,int y)
+        public Points(int x,int y)
         { 
         this.x = x;
         this.y = y;

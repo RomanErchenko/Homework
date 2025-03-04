@@ -8,8 +8,8 @@ namespace DZ4
 {
     public class SportCar: Car
     {
-        public SportCar(int DoorAmount, double EngineVolume, string Model, string FuelType)
-        :base( DoorAmount, EngineVolume, Model, FuelType)
+        public SportCar(int DoorAmount, double EngineVolume, string Model, string FuelType, string MarkOfRadio)
+        :base( DoorAmount, EngineVolume, Model, FuelType, MarkOfRadio)
         {
         }
         public override void Accelerate()
@@ -23,24 +23,6 @@ namespace DZ4
         public override void Start()
         {
             Console.WriteLine("Automatic start from button");
-        }
-
-        public void TurnOnRadio()
-        {
-            Radio.Condition = true;
-            if (Radio.Condition == true)
-            {
-                Console.WriteLine("Radion is on");
-            }
-
-        }
-        public void TurnOffRadio()
-        {
-            Radio.Condition = false;
-            if (Radio.Condition != true)
-            {
-                Console.WriteLine("Radion is off");
-            }
         }
 
     }
