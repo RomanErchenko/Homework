@@ -14,7 +14,9 @@ namespace DZ4
         }
         public override void Accelerate()
         {
-            Console.WriteLine("Speed up procedure by computer,controlling fuel injection");
+            double power = 0;
+            power = power + 50;
+            Console.WriteLine("Power Accelerate: " + power);
         }
         public override void EnginePower()
         {

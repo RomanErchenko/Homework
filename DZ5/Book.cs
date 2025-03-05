@@ -23,7 +23,7 @@ namespace DZ5
             public string Name { get; set; }
             //Автовластивость автор
             public string Author { get; set; }
-            //Властивості
+           
             public double Price
             {
                 get
@@ -38,12 +38,13 @@ namespace DZ5
                     }
                 }
             }
+
             public Book(string name, string author)
             {
                 Name = name;
                 Author = author;
             }
-            // Створюємо метод Open
+          
             public void Open()
             {
                 Console.WriteLine("Ви почали читати книгу");

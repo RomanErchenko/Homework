@@ -29,6 +29,7 @@ namespace DZ4
               Colour="blue",
               Transmission=Transmission.Robot 
             };
+
             Console.WriteLine(new string('-',33));
             MiniVan minivan = new MiniVan(4, 1.4, "Cooper", "fueloil", "Minivan cooper Radio")
             {
@@ -36,29 +37,32 @@ namespace DZ4
                 Colour = "green",
                 Transmission = Transmission.Automatic, 
             };
+
             MiniVan miniVan = new MiniVan(2, 1.2, "Citroen", "gazoline", "Minivan citroen Radio")
             {
                 ModelMark = "Hachback",
                 Colour = "red",
                 Transmission = Transmission.Automatic
             };
+            
             Car[] Holder=new Car[3];
             Holder[0]=sportCar;
             Holder[1]=minivan;
             Holder[2]=miniVan;
+
             for (int i = 0; i < Holder.Length; i++)
             {
                 Holder[i].Show();
-                Console.WriteLine(Holder[i].CarRadio.MarkOfRadio);
+                Console.WriteLine(Holder[i].RadioMark());
                 if (Holder[i] is MiniVan)
                 {
                     MiniVan v = (MiniVan)Holder[i];
-                    v.CarRadio.TurnOnRadio();
+                    v.TurnOnRadio();
                 }
                 if (Holder[i] is SportCar)
                 {
                     SportCar v = (SportCar)Holder[i];
-                    v.CarRadio.TurnOnRadio();
+                    v.TurnOnRadio();
                 }
                 Holder[i].Start();
                 Console.WriteLine(new string('-', 33));
@@ -69,12 +73,12 @@ namespace DZ4
                 if (Holder[i] is MiniVan)
                 {
                     MiniVan v = (MiniVan)Holder[i];
-                    v.CarRadio.TurnOffRadio();
+                    v.TurnOffRadio();
                 }
                 if (Holder[i] is SportCar)
                 {
                     SportCar v = (SportCar)Holder[i];
-                    v.CarRadio.TurnOffRadio();
+                    v.TurnOffRadio();
                 }
                 Console.WriteLine(new string('-', 33));
                 Holder[i].Stop();

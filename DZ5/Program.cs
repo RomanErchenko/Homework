@@ -14,7 +14,6 @@ class Program
     static void Main(string[] args)
     {
         Console.OutputEncoding = Encoding.Unicode;
-        // Створюємо єкземпляри book1 book2,та запрвнюємо поля
         Book book1 = new Book("Лангольери", "Стивен Кинг")
         {
             Pages = 150,
@@ -89,9 +88,11 @@ class Program
         lib.Add(book6);
         lib.Add(book7);
         lib.Add(book8);
+
         Console.WriteLine(new string('-', 30));
         //lib.Show();
         Console.WriteLine(new string('-', 30));
+
         Book l = lib["Вино з кульбаб"];
         if (l != null)
         {

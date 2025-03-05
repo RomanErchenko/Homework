@@ -8,7 +8,7 @@ namespace DZ5
 {
     public class Library
     {
-        //Створюемо приватний масив
+
         private Book[] books = new Book[100];
         public Book this[string name]
         {
@@ -25,7 +25,9 @@ namespace DZ5
                 return null;
             }
         }
+
         private int count = 0;
+
         private void BubbleSortBooks(Book[] books)
         {
             for (int i = 0; i < count - 1; i++)
@@ -43,6 +45,7 @@ namespace DZ5
                 }
             }
         }
+
         public void Add(Book book)
         {
             if (count >= books.Length)
@@ -54,11 +57,12 @@ namespace DZ5
             count++;
             BubbleSortBooks(books);
         }
+
         public void Show()
         {
             for (int i = 0; i < count; i++)
             {
-                Console.WriteLine("Название: " + books[i].Name + ", Автор: " + books[i].Author);
+                Console.WriteLine("Назва " + books[i].Name + ", Автор: " + books[i].Author);
             }
         }
     }

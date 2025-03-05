@@ -25,27 +25,50 @@ namespace DZ6Calculator
                 Console.WriteLine("4. Difference 4");
                 Console.WriteLine("5. Exit");
                 Console.Write("Choose Action:");
-
+                double result;
                 string input = Console.ReadLine();
 
                 switch (input)
                 {
                     case "1":
-                       MathAction.Multiply(dig1, dig2);
+
+                        result=MathAction.Multiply(dig1, dig2);
+                        Console.WriteLine("Sum: " + result);
                         break;
+
                     case "2":
-                       MathAction.Division(dig1, dig2);
+
+                        string message;
+                        result = MathAction.Division(dig1, dig2,out message );
+                        if (message == "Error")
+                        {
+                            Console.WriteLine("Division by zero");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Division: " + result);
+                        }
                         break;
+
                     case "3":
-                        MathAction.Sum(dig1, dig2);
+
+                        result = MathAction.Sum(dig1, dig2);
+                        Console.WriteLine("Sum: " + result);
                         break;
+
                     case "4":
-                        MathAction.Difference(dig1, dig2);
+
+                       result= MathAction.Difference(dig1, dig2);
+                        Console.WriteLine("Difference: " + result);
                         break;
+
                     case "5":
+
                         Console.WriteLine("Exit from Calculator...");
                         return;
+
                     default:
+
                         Console.WriteLine("Not correct input data.");
                         break;
                 }

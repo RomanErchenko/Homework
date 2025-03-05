@@ -8,6 +8,7 @@ namespace DZ4
 {
     public abstract class Car
     {
+        private readonly Radio radio;
         private int DoorAmount { get; set; }
         private double EngineVolume { get; set; }
         private string Model { get; set; }
@@ -15,31 +16,33 @@ namespace DZ4
         public string ModelMark { get; init; }
         public string Colour { get; set; }
         public Transmission Transmission { get; init; }
-        public Radio CarRadio { get; set; }
 
-
-        public Car(int DoorAmount, double EngineVolume, string Model, string FuelType,string MarkOfRadio)
+        public Car(int doorAmount, double engineVolume, string model, string fuelType,string markOfRadio)
         { 
-         this.DoorAmount = DoorAmount;
-         this.EngineVolume = EngineVolume;
-         this.Model = Model;
-         this.FuelType = FuelType;
-         CarRadio = new Radio(MarkOfRadio);
-          
+         this.DoorAmount = doorAmount;
+         this.EngineVolume = engineVolume;
+         this.Model = model;
+         this.FuelType = fuelType;
+          radio = new Radio(markOfRadio);  
         }
+
         public virtual void EnginePower()
         {
             Console.WriteLine("NormalPower");
         }
+
         public abstract void Accelerate();
+
         public virtual void Start()
         {
             Console.WriteLine("Mechanical start by rotation key");
         }
+
         public  void Stop()
         {
             Console.WriteLine("Mechanical stop by rotation key");
         }
+
         public  void WindowWashing()
         {
             Console.WriteLine("Window washing");
@@ -54,9 +57,9 @@ namespace DZ4
             Console.WriteLine(Colour);
             Console.WriteLine(FuelType);
             Console.WriteLine(Transmission);
-
         }
-        public class Radio
+
+        private class Radio
         {
             public bool Condition { get; set; }
             public string MarkOfRadio { get; }
@@ -64,22 +67,26 @@ namespace DZ4
             {
                 this.MarkOfRadio = MarkOfRadio;
             }
-            public void TurnOnRadio()
+        }
+
+        public void TurnOnRadio()
+        {
+            radio.Condition = true;
+            if (radio.Condition)
             {
-                    Condition = true;
-                if (Condition == true)
-                {
-                    Console.WriteLine("Radion is on");
-                }
-            }
-            public void TurnOffRadio()
-            {
-                    Condition = false;
-                if (Condition != true)
-                {
-                    Console.WriteLine("Radion is off");
-                }
+                Console.WriteLine("Radion is on");
             }
         }
+
+        public void TurnOffRadio()
+        {
+            radio.Condition = false;
+            if (!radio.Condition)
+            {
+                Console.WriteLine("Radion is off");
+            }
+        }
+        public string RadioMark()
+        { return radio.MarkOfRadio;}
     }
 }

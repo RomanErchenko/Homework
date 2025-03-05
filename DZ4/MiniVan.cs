@@ -10,13 +10,15 @@ namespace DZ4
 {
     public class MiniVan: Car
     {
-        public MiniVan(int doorAmount, double engineVolume, string model, string fuelType, string MarkOfRadio)
-        : base(doorAmount, engineVolume, model, fuelType, MarkOfRadio)
+        public MiniVan(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio)
+        : base(doorAmount, engineVolume, model, fuelType, markOfRadio)
         {
         }
         public override void Accelerate()
         {
-            Console.WriteLine("Normal speed");
+            double power=0;
+            power = power + 20;
+            Console.WriteLine("Power Accelerate: " + power);
         }
         public override void EnginePower()
         {
