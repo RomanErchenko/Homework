@@ -16,6 +16,8 @@ namespace DZ4
         public string ModelMark { get; init; }
         public string Colour { get; set; }
         public Transmission Transmission { get; init; }
+        public double CurrentSpeed { get; protected set; }
+
 
         public Car(int doorAmount, double engineVolume, string model, string fuelType,string markOfRadio)
         { 
@@ -23,7 +25,7 @@ namespace DZ4
          this.EngineVolume = engineVolume;
          this.Model = model;
          this.FuelType = fuelType;
-          radio = new Radio(markOfRadio);  
+         radio = new Radio(markOfRadio);  
         }
 
         public virtual void EnginePower()
@@ -40,7 +42,7 @@ namespace DZ4
 
         public  void Stop()
         {
-            Console.WriteLine("Mechanical stop by rotation key");
+           CurrentSpeed = 0;
         }
 
         public  void WindowWashing()
@@ -86,6 +88,7 @@ namespace DZ4
                 Console.WriteLine("Radion is off");
             }
         }
+
         public string RadioMark()
         { return radio.MarkOfRadio;}
     }

@@ -14,12 +14,12 @@ namespace DZ4
         : base(doorAmount, engineVolume, model, fuelType, markOfRadio)
         {
         }
+
         public override void Accelerate()
         {
-            double power=0;
-            power = power + 20;
-            Console.WriteLine("Power Accelerate: " + power);
+            CurrentSpeed = CurrentSpeed + 20;
         }
+
         public override void EnginePower()
         {
            base.EnginePower();

@@ -22,10 +22,12 @@ namespace Dz7
         public Points?[] point = new Points?[6];
         private string figureName;
         int count;
+
         public string FigureName
         { 
          get { return figureName; } 
         }
+
         public Points? this[int index]
         {
             get 
@@ -45,6 +47,7 @@ namespace Dz7
                 Check();
             }
         }
+
         public void Check()
         {
             count = 0;
@@ -54,39 +57,18 @@ namespace Dz7
                 { 
                   count++;
                 }
-
             }
-            if (count == 0)
-            {
-                figureName = FigureType.non.ToString();
-            }
-            if (count == 1)
-            {
-                figureName = FigureType.dot.ToString();
-            }
-            if (count == 2)
-            {
-                figureName = FigureType.line.ToString();
-            }
-            if (count == 3)
-            {
-                figureName = FigureType.triangle.ToString();
-            }
-            if (count == 4)
-            {
-                figureName = FigureType.quadrangle.ToString();
-            }
-            if (count == 5)
-            {
-                figureName = FigureType.pentagon.ToString();
-            }
-            if (count == 6)
-            {
-                figureName = FigureType.hexagon.ToString();
-            }
-
+           
+          figureName = count switch
+           {
+              0 => FigureType.non.ToString(),
+              1 => FigureType.dot.ToString(),
+              2 => FigureType.line.ToString(),
+              3 => FigureType.triangle.ToString(),
+              4 => FigureType.quadrangle.ToString(),
+              5 => FigureType.pentagon.ToString(),
+              6 => FigureType.hexagon.ToString()
+           };
         }
-
-
     }
 }

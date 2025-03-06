@@ -40,13 +40,14 @@ namespace DZ6Calculator
 
                         string message;
                         result = MathAction.Division(dig1, dig2,out message );
-                        if (message == "Error")
+                        if (string.IsNullOrEmpty(message))
                         {
-                            Console.WriteLine("Division by zero");
+                            
+                            Console.WriteLine("Division: " + result);
                         }
                         else
                         {
-                            Console.WriteLine("Division: " + result);
+                            Console.WriteLine(message);
                         }
                         break;
 

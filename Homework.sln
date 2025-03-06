@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DZ6Calculator", "DZ6Calcula
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dz7Temperature", "Dz7Temperature\Dz7Temperature.csproj", "{27CC40D0-561B-4ED3-9EE4-CCC398FB440D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DZ7.2", "DZ7.2\DZ7.2.csproj", "{EA34F210-31F5-4B7A-A6BF-86F53F5B01BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{27CC40D0-561B-4ED3-9EE4-CCC398FB440D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27CC40D0-561B-4ED3-9EE4-CCC398FB440D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27CC40D0-561B-4ED3-9EE4-CCC398FB440D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA34F210-31F5-4B7A-A6BF-86F53F5B01BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA34F210-31F5-4B7A-A6BF-86F53F5B01BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA34F210-31F5-4B7A-A6BF-86F53F5B01BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA34F210-31F5-4B7A-A6BF-86F53F5B01BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

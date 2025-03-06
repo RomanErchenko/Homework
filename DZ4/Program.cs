@@ -84,8 +84,12 @@ namespace DZ4
                 Holder[i].Stop();
                 Console.WriteLine(new string('-', 33));
             }
+            for (int i = 0; i < Holder.Length; i++)
+            {
+                Holder[i].Accelerate();
+                Console.WriteLine("Power Accelerate: " + Holder[i].CurrentSpeed );
+            }
                 Console.ReadKey();
-          
         }
     }
 }
