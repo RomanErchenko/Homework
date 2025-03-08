@@ -8,20 +8,19 @@ namespace DZ5
 {
     public class Book
     {
-            //Приватні поля
+           
             private double price;
-            //Автовластивості
-            // Автовластивость Анотація 
+     
             public string Anotation { get; set; }
-            // Автовластивость Жанр
+           
             public string Genre { get; init; }
-            //Автовластивость Сторінки
+            
             public int Pages { get; init; }
-            //Автовластивость Року
+          
             public int YearOfProduce { get; init; }
-            //Автовластивость Назва книги
+           
             public string Name { get;}
-            //Автовластивость автор
+            
             public string Author { get;}
            
             public double Price

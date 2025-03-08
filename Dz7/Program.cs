@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Point = Dz7.Point;
 
 namespace DZ7
 {
@@ -24,10 +25,10 @@ namespace DZ7
         {
             Console.OutputEncoding = Encoding.UTF8;
 
-            Points p1 = new Points(12, 10);
-            Points p2 = new Points(12, 20);
-            Points p3 = new Points(2, 20);
-            Points p4 = new Points(12, 22);
+            Point p1 = new Point(12, 10);
+            Point p2 = new Point(12, 20);
+            Point p3 = new Point(2, 20);
+            Point p4 = new Point(12, 22);
 
             Figure  figure = new Figure();
             figure[0] = p1;

@@ -8,25 +8,25 @@ namespace DZ6
 {
     public class Figure
     {
-        private Point[] point;
+        private Point[] points;
 
-        public Figure(Point[] point )
+        public Figure(Point[] points )
         {
-            if (point.Length < 3)
+            if (points.Length < 3)
             {
                 Console.WriteLine("Need to enter more points");
             }
-            this.point = point;
+            this.points = points;
         }
         public Point[] Point
         {
-            get { return point; }
+            get { return points; }
         }
 
         public Point this[int index] 
         {
         
-            get { return point[index]; }
+            get { return points[index]; }
         }
 
     }

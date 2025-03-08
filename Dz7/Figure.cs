@@ -19,7 +19,7 @@ namespace Dz7
     }
     public class Figure
     {
-        public Points?[] point = new Points?[6];
+        public Point?[] point = new Point?[6];
         private string figureName;
         int count;
 
@@ -28,7 +28,7 @@ namespace Dz7
          get { return figureName; } 
         }
 
-        public Points? this[int index]
+        public Point? this[int index]
         {
             get 
             {
