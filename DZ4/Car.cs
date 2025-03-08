@@ -9,10 +9,10 @@ namespace DZ4
     public abstract class Car
     {
         private readonly Radio radio;
-        private int DoorAmount { get; set; }
-        private double EngineVolume { get; set; }
-        private string Model { get; set; }
-        private string FuelType { get; set; }
+        private int DoorAmount { get; }
+        private double EngineVolume { get; }
+        private string Model { get; }
+        private string FuelType { get;}
         public string ModelMark { get; init; }
         public string Colour { get; set; }
         public Transmission Transmission { get; init; }

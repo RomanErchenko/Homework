@@ -9,13 +9,13 @@ namespace Dz7
 {
     public enum FigureType
     {
-        non,
-        dot,
-        line,
-        triangle,
-        quadrangle, 
-        pentagon,
-        hexagon
+        Non,
+        Dot,
+        Line,
+        Triangle,
+        Quadrangle, 
+        Pentagon,
+        Hexagon
     }
     public class Figure
     {
@@ -61,13 +61,13 @@ namespace Dz7
            
           figureName = count switch
            {
-              0 => FigureType.non.ToString(),
-              1 => FigureType.dot.ToString(),
-              2 => FigureType.line.ToString(),
-              3 => FigureType.triangle.ToString(),
-              4 => FigureType.quadrangle.ToString(),
-              5 => FigureType.pentagon.ToString(),
-              6 => FigureType.hexagon.ToString()
+              0 => FigureType.Non.ToString(),
+              1 => FigureType.Dot.ToString(),
+              2 => FigureType.Line.ToString(),
+              3 => FigureType.Triangle.ToString(),
+              4 => FigureType.Quadrangle.ToString(),
+              5 => FigureType.Pentagon.ToString(),
+              6 => FigureType.Hexagon.ToString()
            };
         }
     }

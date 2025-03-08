@@ -16,7 +16,7 @@ namespace DZ4
 
         public override void Accelerate()
         {
-            CurrentSpeed = CurrentSpeed + 50;
+            CurrentSpeed += 50;
         }
 
         public override void EnginePower()

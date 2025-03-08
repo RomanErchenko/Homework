@@ -39,29 +39,24 @@ namespace DZ7._2
         }
         public struct TriangleData
         { 
-         private readonly double sideA;
-         private readonly double sideB;
-         private readonly double sideC;
-         private readonly double perimeter;
-         private readonly double area;
-         private readonly string triangleType;
-         public double SideA => sideA;
-         public double SideB => sideB;
-         public double SideC => sideC;
-         public double Perimetr => perimeter;
-         public double Area => area;
-         public string TriangleType => triangleType;
-         public TriangleData(double sideA, double sideB, double sideC)
-         {
-          this.sideA = sideA;
-          this.sideB = sideB;
-          this.sideC = sideC;
-          perimeter =sideA + sideC + sideC;
-          double semiPerimeter = perimeter / 2;
-          area = Math.Sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) * (semiPerimeter - sideC));
-          triangleType = DetermineTriangleType(sideA, sideB, sideC);
+         
+         public readonly double SideA { get; }
+         public readonly double SideB { get; }
+         public readonly double SideC { get; }
+         public readonly double Perimetr { get; }
+         public readonly double Area { get; }
+         public readonly string TriangleType { get; }
+            public TriangleData(double sideA, double sideB, double sideC)
+            {
+             this.SideA = sideA;
+             this.SideB = sideB;
+             this.SideC = sideC;
+             Perimetr =sideA + sideC + sideC;
+             double semiPerimeter = Perimetr / 2;
+             Area = Math.Sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) * (semiPerimeter - sideC));
+             TriangleType = DetermineTriangleType(sideA, sideB, sideC);
 
-          }
+            }
 
             private static string DetermineTriangleType(double a, double b, double c)
             {

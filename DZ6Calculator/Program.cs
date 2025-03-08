@@ -32,14 +32,14 @@ namespace DZ6Calculator
                 {
                     case "1":
 
-                        result=MathAction.Multiply(dig1, dig2);
+                        result = MathAction.Multiply(dig1, dig2);
                         Console.WriteLine("Sum: " + result);
                         break;
 
                     case "2":
 
                         string message;
-                        result = MathAction.Division(dig1, dig2,out message );
+                        result = MathAction.Division(dig1, dig2, out message );
                         if (string.IsNullOrEmpty(message))
                         {
                             

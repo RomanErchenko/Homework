@@ -14,15 +14,15 @@ namespace DZ5
             // Автовластивость Анотація 
             public string Anotation { get; set; }
             // Автовластивость Жанр
-            public string Genre { get; set; }
+            public string Genre { get; init; }
             //Автовластивость Сторінки
             public int Pages { get; init; }
             //Автовластивость Року
             public int YearOfProduce { get; init; }
             //Автовластивость Назва книги
-            public string Name { get; set; }
+            public string Name { get;}
             //Автовластивость автор
-            public string Author { get; set; }
+            public string Author { get;}
            
             public double Price
             {

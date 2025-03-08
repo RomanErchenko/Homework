@@ -23,21 +23,27 @@ namespace DZ7
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
-            Points p1 = new Points(12,10);
+
+            Points p1 = new Points(12, 10);
             Points p2 = new Points(12, 20);
             Points p3 = new Points(2, 20);
             Points p4 = new Points(12, 22);
+
             Figure  figure = new Figure();
             figure[0] = p1;
             Console.WriteLine(figure.FigureName);
+
             figure[1] = p2;
             Console.WriteLine(figure.FigureName);
+
             figure[0] = null;
             Console.WriteLine(figure.FigureName);
+
             figure[0] = p1;
             figure[2] = p3;
             figure[3] = p4;
             Console.WriteLine(figure.FigureName);
+
             Console.ReadKey();
         }
     }

@@ -42,22 +42,31 @@ namespace DZ6
             double triangle = Geometry.GetPerimetr(A,B,C);
             Console.WriteLine($"Perimetr of Triange: {triangle}");
             Console.WriteLine(new string('-',30));
+
             double quadrangle= Geometry.GetPerimetr(A, B,C,D);
             Console.WriteLine($"Perimetr of Quadrangle: {quadrangle}");
             Console.WriteLine(new string('-', 30));
+
             triangle = Geometry.GetArea(A,B,C);
             Console.WriteLine($"Area of Triange: {triangle}");
             Console.WriteLine(new string('-', 30));
+
             quadrangle = Geometry.GetArea(A, B, C, D);
             Console.WriteLine($"Area of Quadrangle: {quadrangle}");
             Console.WriteLine(new string('-', 30));
+
             Point[] p = [A,B,C,D,E,];
             double multiangle = Geometry.GetArea(p);
             Console.WriteLine($"Area of MultiAngle: {multiangle}");
             Console.WriteLine(new string('-', 30));
+
             Figure figure = new Figure(p);
             figure.GetAreaExtansion();
             Console.WriteLine($"ExtantionMethodInfo: {figure.GetAreaExtansion()}");
+            Console.WriteLine(new string('-', 30));
+
+            Point fig = figure[0];
+            Console.WriteLine($"cordinate: {fig.X},{fig.Y}");
             Console.ReadKey();
         }
     }

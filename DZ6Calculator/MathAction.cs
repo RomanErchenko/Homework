@@ -11,10 +11,10 @@ namespace DZ6Calculator
         
         public static double Sum(double d1, double d2)
         { 
-         return d1+d2;
+           return d1 + d2;
         }
 
-        public static double Division(double d1, double d2,out string message)
+        public static double Division(double d1, double d2, out string message)
         {
             
             if (d2 == 0)
@@ -24,8 +24,8 @@ namespace DZ6Calculator
             }
             else
             {
-                message =null;
-                return d1/ d2;  
+                message = null;
+                return d1 / d2;  
             }
         }
 

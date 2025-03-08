@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DZ6
 {
-    public  class Figure
+    public class Figure
     {
         private Point[] point;
 
@@ -21,6 +21,12 @@ namespace DZ6
         public Point[] Point
         {
             get { return point; }
+        }
+
+        public Point this[int index] 
+        {
+        
+            get { return point[index]; }
         }
 
     }

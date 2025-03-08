@@ -13,18 +13,10 @@ namespace Dz7
 
         public Points(int x,int y)
         { 
-        this.x = x;
-        this.y = y;
+          this.x = x;
+          this.y = y;
         }
 
-        public int X
-        {
-          get { return x; }
-        }
-        public int Y
-        {
-          get { return y; } 
-        }
 
     }
 }

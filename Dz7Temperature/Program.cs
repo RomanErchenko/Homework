@@ -16,7 +16,6 @@ namespace DZ7Temperature
         static void Main(string[] args)
         {
             Temperature temperature = new Temperature(37);
-            temperature.TempConvert();
             temperature.Show();
             Console.ReadKey();
         }
