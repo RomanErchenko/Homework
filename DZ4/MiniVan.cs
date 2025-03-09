@@ -8,37 +8,21 @@ using System.Threading.Tasks;
 
 namespace DZ4
 {
-    public class MiniVan:Car
+    public class MiniVan: Car
     {
-        public MiniVan(int DoorAmount, double EngineVolume, string Model,string FuelType) : base(DoorAmount, EngineVolume, Model,FuelType)
+        public MiniVan(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio)
+        : base(doorAmount, engineVolume, model, fuelType, markOfRadio)
         {
         }
+
         public override void Accelerate()
         {
-            Console.WriteLine("Normal speed");
+            CurrentSpeed += 20;
         }
+
         public override void EnginePower()
         {
            base.EnginePower();
         }
-
-        public void TurnOnRadio()
-        { 
-         RadiO.Condition=true;
-         if (RadiO.Condition == true)
-            {
-                Console.WriteLine("Radion is on");
-            }
-        
-        }
-        public void TurnOFFRadio()
-        {
-            RadiO.Condition = false;
-            if (RadiO.Condition != true)
-            {
-                Console.WriteLine("Radion is off");
-            }
-        }
-       
     }
 }

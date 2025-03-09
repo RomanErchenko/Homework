@@ -20,44 +20,50 @@ namespace DZ4
     // В класі мінівен додати методи TurnOnRadio TurnOff
     class Program
     {
+        //Task 4
         static void Main(string[] args)
         {
-            SportCar sportCar = new SportCar(2, 6.4, "Mersedez", "gasoline")
+            SportCar sportCar = new SportCar(2, 6.4, "Mersedez", "gasoline", "Sport car Radio")
             { 
               ModelMark="Sport",
               Colour="blue",
               Transmission=Transmission.Robot 
             };
+
             Console.WriteLine(new string('-',33));
-            MiniVan minivan = new MiniVan(4, 1.4, "Cooper", "fueloil")
+            MiniVan minivan = new MiniVan(4, 1.4, "Cooper", "fueloil", "Minivan cooper Radio")
             {
                 ModelMark = "Hachback",
                 Colour = "green",
-                Transmission = Transmission.Automatic,
-                
+                Transmission = Transmission.Automatic, 
             };
-            minivan.RadiO.MarkOfRadio = "MiniVanRadio";
-            MiniVan miniVan = new MiniVan(2, 1.2, "Citroen", "gazoline")
+
+            MiniVan miniVan = new MiniVan(2, 1.2, "Citroen", "gazoline", "Minivan citroen Radio")
             {
                 ModelMark = "Hachback",
                 Colour = "red",
                 Transmission = Transmission.Automatic
             };
-            minivan.RadiO.MarkOfRadio = "MiniVanRadio";
+            
             Car[] Holder=new Car[3];
             Holder[0]=sportCar;
             Holder[1]=minivan;
             Holder[2]=miniVan;
+
             for (int i = 0; i < Holder.Length; i++)
             {
+                Holder[i].Show();
+                Console.WriteLine(Holder[i].RadioMark());
                 if (Holder[i] is MiniVan)
                 {
-                    MiniVan v = Holder[i] as MiniVan;
+                    MiniVan v = (MiniVan)Holder[i];
                     v.TurnOnRadio();
                 }
-                else { Console.WriteLine("no radio"); }
-                Console.WriteLine(new string('-', 33));
-                Holder[i].Show();
+                if (Holder[i] is SportCar)
+                {
+                    SportCar v = (SportCar)Holder[i];
+                    v.TurnOnRadio();
+                }
                 Holder[i].Start();
                 Console.WriteLine(new string('-', 33));
             }
@@ -66,16 +72,24 @@ namespace DZ4
             {
                 if (Holder[i] is MiniVan)
                 {
-                    MiniVan v = Holder[i] as MiniVan;
-                    v.TurnOFFRadio();
+                    MiniVan v = (MiniVan)Holder[i];
+                    v.TurnOffRadio();
                 }
-                else { Console.WriteLine("no radio"); }
+                if (Holder[i] is SportCar)
+                {
+                    SportCar v = (SportCar)Holder[i];
+                    v.TurnOffRadio();
+                }
                 Console.WriteLine(new string('-', 33));
                 Holder[i].Stop();
                 Console.WriteLine(new string('-', 33));
             }
+            for (int i = 0; i < Holder.Length; i++)
+            {
+                Holder[i].Accelerate();
+                Console.WriteLine("Power Accelerate: " + Holder[i].CurrentSpeed );
+            }
                 Console.ReadKey();
-          
         }
     }
 }

@@ -8,39 +8,43 @@ namespace DZ4
 {
     public abstract class Car
     {
-        private int DoorAmount { get; set; }
-        private double EngineVolume { get; set; }
-        private string Model { get; set; }
+        private readonly Radio radio;
+        private int DoorAmount { get; }
+        private double EngineVolume { get; }
+        private string Model { get; }
+        private string FuelType { get;}
         public string ModelMark { get; init; }
-        public string Colour { get; init; }
-        private string FuelType { get; set; }
-        public Transmission Transmission { get; set; }
-        public Radio RadiO { get; set; }
+        public string Colour { get; set; }
+        public Transmission Transmission { get; init; }
+        public double CurrentSpeed { get; protected set; }
 
-        public Car(int DoorAmount,double EngineVolume,string Model,string FuelType)
+
+        public Car(int doorAmount, double engineVolume, string model, string fuelType,string markOfRadio)
         { 
-         this.DoorAmount = DoorAmount;
-         this.EngineVolume = EngineVolume;
-         this.Model = Model;
-         //this.ModelMark = ModelMark;
-         //this.Colour = Colour;
-         this.FuelType = FuelType;
-         //this.Transmission = Transmission;
-          RadiO = new Radio();
+         this.DoorAmount = doorAmount;
+         this.EngineVolume = engineVolume;
+         this.Model = model;
+         this.FuelType = fuelType;
+         radio = new Radio(markOfRadio);  
         }
+
         public virtual void EnginePower()
         {
             Console.WriteLine("NormalPower");
         }
+
         public abstract void Accelerate();
+
         public virtual void Start()
         {
             Console.WriteLine("Mechanical start by rotation key");
         }
+
         public  void Stop()
         {
-            Console.WriteLine("Mechanical stop by rotation key");
+           CurrentSpeed = 0;
         }
+
         public  void WindowWashing()
         {
             Console.WriteLine("Window washing");
@@ -55,7 +59,37 @@ namespace DZ4
             Console.WriteLine(Colour);
             Console.WriteLine(FuelType);
             Console.WriteLine(Transmission);
-
         }
+
+        private class Radio
+        {
+            public bool Condition { get; set; }
+            public string MarkOfRadio { get; }
+            public Radio(string MarkOfRadio)
+            {
+                this.MarkOfRadio = MarkOfRadio;
+            }
+        }
+
+        public void TurnOnRadio()
+        {
+            radio.Condition = true;
+            if (radio.Condition)
+            {
+                Console.WriteLine("Radion is on");
+            }
+        }
+
+        public void TurnOffRadio()
+        {
+            radio.Condition = false;
+            if (!radio.Condition)
+            {
+                Console.WriteLine("Radion is off");
+            }
+        }
+
+        public string RadioMark()
+        { return radio.MarkOfRadio;}
     }
 }

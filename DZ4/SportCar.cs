@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 
 namespace DZ4
 {
-    public class SportCar:Car
+    public class SportCar: Car
     {
-        public SportCar(int DoorAmount,double EngineVolume,string Model,string FuelType) :base( DoorAmount,EngineVolume,Model,FuelType)
+        public SportCar(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio)
+        :base( doorAmount, engineVolume, model, fuelType, markOfRadio)
         {
+
         }
+
         public override void Accelerate()
         {
-            Console.WriteLine("Speed up procedure by computer,controlling fuel injection");
+            CurrentSpeed += 50;
         }
+
         public override void EnginePower()
         {
             Console.WriteLine("Increase power engine");
         }
+
         public override void Start()
         {
             Console.WriteLine("Automatic start from button");
         }
-       
-        
+
     }
 }
