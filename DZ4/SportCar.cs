@@ -8,15 +8,16 @@ namespace DZ4
 {
     public class SportCar: Car
     {
-        public SportCar(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio)
-        :base( doorAmount, engineVolume, model, fuelType, markOfRadio)
+        public SportCar(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio,double CurrentSpeed)
+        :base( doorAmount, engineVolume, model, fuelType, markOfRadio,CurrentSpeed)
         {
 
         }
 
-        public override void Accelerate()
+        public override void Accelerate(GasAcceleratorPedal pedal)
         {
-            CurrentSpeed += 50;
+            AccelerationFormula formula = new AccelerationFormula(Formula);
+             formula.Invoke(CurrentSpeed, pedal);
         }
 
         public override void EnginePower()

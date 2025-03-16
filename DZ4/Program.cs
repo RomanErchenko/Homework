@@ -23,22 +23,22 @@ namespace DZ4
         //Task 4
         static void Main(string[] args)
         {
-            SportCar sportCar = new SportCar(2, 6.4, "Mersedez", "gasoline", "Sport car Radio")
+            SportCar sportCar = new SportCar(2, 6.4, "Mersedez", "gasoline", "Sport car Radio",12)
             { 
               ModelMark="Sport",
               Colour="blue",
               Transmission=Transmission.Robot 
             };
-
+            Console.WriteLine(sportCar.CurrentSpeed);
             Console.WriteLine(new string('-',33));
-            MiniVan minivan = new MiniVan(4, 1.4, "Cooper", "fueloil", "Minivan cooper Radio")
+            MiniVan minivan = new MiniVan(4, 1.4, "Cooper", "fueloil", "Minivan cooper Radio",4)
             {
                 ModelMark = "Hachback",
                 Colour = "green",
                 Transmission = Transmission.Automatic, 
             };
 
-            MiniVan miniVan = new MiniVan(2, 1.2, "Citroen", "gazoline", "Minivan citroen Radio")
+            MiniVan miniVan = new MiniVan(2, 1.2, "Citroen", "gazoline", "Minivan citroen Radio",3)
             {
                 ModelMark = "Hachback",
                 Colour = "red",
@@ -85,11 +85,22 @@ namespace DZ4
                 Console.WriteLine(new string('-', 33));
             }
             for (int i = 0; i < Holder.Length; i++)
-            {
-                Holder[i].Accelerate();
+            {  
+                    Holder[i].Accelerate(GasAcceleratorPedal.halfpush);
+                
+
                 Console.WriteLine("Power Accelerate: " + Holder[i].CurrentSpeed );
             }
-                Console.ReadKey();
+            Console.WriteLine(new string('-', 33));
+            for (int i = 0; i < Holder.Length; i++)
+            {
+                Holder[i].Accelerate(GasAcceleratorPedal.fullpowerfpush);
+
+
+                Console.WriteLine("Power Accelerate: " + Holder[i].CurrentSpeed);
+            }
+
+            Console.ReadKey();
         }
     }
 }
