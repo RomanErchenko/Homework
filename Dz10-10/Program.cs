@@ -21,19 +21,21 @@ namespace Dz10
     {
         static void Main(string[] args)
         {
-            ArrayDisplayer<int> arr =new ArrayDisplayer<int>(3);
-            arr.Add(1);
-            arr.Add(2);
-            Console.WriteLine(arr[0]);
-            Console.WriteLine(arr[1]);
-            Console.WriteLine(arr[3]);
-            arr.DisplayInfoOnConsole();
+            ArrayDisplayer<int> arrinteger = new ArrayDisplayer<int>(3);
+            arrinteger.AddItemToMass(1);
+            arrinteger.AddItemToMass(2);
+            Console.WriteLine(arrinteger[0]);
+            Console.WriteLine(arrinteger[1]);
+            Console.WriteLine(arrinteger[3]);
+            arrinteger.DisplayInfoOnConsole();
 
-            ArrayDisplayer<string> ar1 = new ArrayDisplayer<string>(3);
-            ar1.Add("rrr");
-            ar1.Add("yy");
-            Console.WriteLine(ar1[0]);
-            Console.WriteLine(ar1[3]);
+            ArrayDisplayer<string> arrstring = new ArrayDisplayer<string>(3);
+            arrstring.AddItemToMass("rrr");
+            arrstring.AddItemToMass("yy");
+            Console.WriteLine(arrstring[0]);
+            Console.WriteLine(arrstring[3]);
+            arrstring.DisplayInfoOnConsole();
+
             Console.ReadKey();
         }
 

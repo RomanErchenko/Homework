@@ -8,61 +8,53 @@ namespace Dz10_10
 {
     public class ArrayDisplayer<T>
     {
-       private T[] array;
-       private DateTime[] date;
-       private int amount;
+       private T[] arrayitems;
+       private DateTime[] dates;
+       private int counter;
 
         public ArrayDisplayer(int n)
         { 
-          array = new T[n];
-          date = new DateTime[n];
+          arrayitems = new T[n];
+          dates = new DateTime[n];
         }
 
         public T this[int index]
         {
             get
             {
-                if (index >= 0 && index < amount)
+                if (index >= 0 && index < counter)
                 {
-                    return array[index];
+                    return arrayitems[index];
                 }
                return default;
             }
         }
 
-        public void Add(T item)
+        public void AddItemToMass(T item)
         {
-            //for (int i = 0; i < array.Length; i++) 
-            //{
-            // if (EqualityComparer<T>.Default.Equals(array[i], default(T)))
-            // {
-            //      array[i] = item;
-            //      date[i] = DateTime.Now;
-            //        amount++;
-            //      break;
-            // }
-            //}
-            if (amount < array.Length)
+          
+            if (counter < arrayitems.Length)
             {
-                array[amount] = item;
-                date[amount] = DateTime.Now;
-                amount++;
+                arrayitems[counter] = item;
+                dates[counter] = DateTime.Now;
+                counter++;
             }
         }
 
         public void DisplayInfoOnConsole()
         {
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < counter; i++)
             {
-                    Console.WriteLine($"number in slot:{i}");
-                    Console.WriteLine($"Info inside slot:{array[i]}");
-                    Console.WriteLine($"Date of producing:{date[i]}");
+             Console.WriteLine($"number in slot:{i}");
+             Console.WriteLine($"Info inside slot:{arrayitems[i]}");
+             Console.WriteLine($"Date of producing:{dates[i]}");
             } 
-            int empty=array.Length-amount;
+
+            int empty=arrayitems.Length-counter;
             Console.WriteLine($"Empty slots:{empty}");
-            Console.WriteLine($"Slots with information:{amount}");
-            Console.WriteLine($"Type of element:{array.GetType()}");
-            Console.WriteLine(new string('-',33));
+            Console.WriteLine($"Slots with information:{counter}");
+            Console.WriteLine($"Type of element:{arrayitems.GetType()}");
+            Console.WriteLine(new string('-', 33));
         }
     }
 }
