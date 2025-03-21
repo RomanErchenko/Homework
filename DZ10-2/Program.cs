@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace Dz10
 {
-    class Myclass<T>
+    class MyMassive<T>
     {
        
-        public T[] massive = new T[0];
+        public T[] Titems = new T[0];
 
         public void Add(T value)
         {
-            T[] mass=new T[massive.Length+1];
-            for (int i = 0; i < massive.Length; i++)
+            T[] mass=new T[Titems.Length + 1];
+            for (int i = 0; i < Titems.Length; i++)
             {
-                mass[i] = massive[i];
+                mass[i] = Titems[i];
             }
-            massive = new T[massive.Length + 1];
-            mass[massive.Length - 1] = value;
-            massive = mass;
+            Titems = new T[Titems.Length + 1];
+            mass[Titems.Length - 1] = value;
+            Titems = mass;
             
         }
         public T this[int index]
@@ -29,11 +29,11 @@ namespace Dz10
             get
             {
               
-                    if (index >= 0 && index < massive.Length)
+                    if (index >= 0 && index < Titems.Length)
                     {
-                        return massive[index];
+                        return Titems[index];
                     }
-                    throw new IndexOutOfRangeException("Индекс выходит за границы массива");
+                    return  default;
             }
         }
     }
@@ -42,7 +42,7 @@ namespace Dz10
         static void Main(string[] args)
         {
         
-            Myclass<int> myclass = new Myclass<int>();
+            MyMassive<int> myclass = new MyMassive<int>();
             myclass.Add(1);
             Console.WriteLine(myclass[0]);
             myclass.Add(3);

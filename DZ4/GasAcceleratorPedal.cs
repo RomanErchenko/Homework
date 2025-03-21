@@ -8,10 +8,10 @@ namespace DZ4
 {
     public enum GasAcceleratorPedal
     {
-      quarterpush,
-      halfpush,
-      halfandquarterpush,
-      fullpowerfpush
+      Quarterpush,
+      Halfpush,
+      Halfandquarterpush,
+      Fullpowerfpush
     }
    
 }

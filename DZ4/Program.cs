@@ -86,7 +86,7 @@ namespace DZ4
             }
             for (int i = 0; i < Holder.Length; i++)
             {  
-                    Holder[i].Accelerate(GasAcceleratorPedal.halfpush);
+                    Holder[i].Accelerate(GasAcceleratorPedal.Halfpush);
                 
 
                 Console.WriteLine("Power Accelerate: " + Holder[i].CurrentSpeed );
@@ -94,7 +94,7 @@ namespace DZ4
             Console.WriteLine(new string('-', 33));
             for (int i = 0; i < Holder.Length; i++)
             {
-                Holder[i].Accelerate(GasAcceleratorPedal.fullpowerfpush);
+                Holder[i].Accelerate(GasAcceleratorPedal.Fullpowerfpush);
 
 
                 Console.WriteLine("Power Accelerate: " + Holder[i].CurrentSpeed);

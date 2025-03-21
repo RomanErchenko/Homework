@@ -20,14 +20,14 @@ namespace DZ4
         public string Colour { get; set; }
         public Transmission Transmission { get; init; }
         public double CurrentSpeed { get; protected set; }
-        public Car(int doorAmount, double engineVolume, string model, string fuelType,string markOfRadio,double CurrentSpeed)
+        public Car(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio, double currentSpeed)
         { 
          this.DoorAmount = doorAmount;
          this.EngineVolume = engineVolume;
          this.Model = model;
          this.FuelType = fuelType;  
          radio = new Radio(markOfRadio);
-         this.CurrentSpeed = CurrentSpeed;
+         this.CurrentSpeed = currentSpeed;
             
         }
 

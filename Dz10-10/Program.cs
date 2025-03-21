@@ -27,7 +27,7 @@ namespace Dz10
             Console.WriteLine(arr[0]);
             Console.WriteLine(arr[1]);
             Console.WriteLine(arr[3]);
-            arr.DisplayInfo();
+            arr.DisplayInfoOnConsole();
 
             ArrayDisplayer<string> ar1 = new ArrayDisplayer<string>(3);
             ar1.Add("rrr");
