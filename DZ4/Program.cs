@@ -23,26 +23,33 @@ namespace DZ4
         //Task 4
         static void Main(string[] args)
         {
-            SportCar sportCar = new SportCar(2, 6.4, "Mersedez", "gasoline", "Sport car Radio",12)
-            { 
-              ModelMark="Sport",
-              Colour="blue",
-              Transmission=Transmission.Robot 
+          
+            SportCar sportCar = new SportCar(2, 6.4, "Mersedez", "gasoline", "Sport car Radio")
+            {
+                ModelMark = "Sport",
+                Colour = "blue",
+                Transmission = Transmission.Robot,
+                MaxSpeed = 300,
+                EngineCondition=EngineState.SwitchedOff 
             };
             Console.WriteLine(sportCar.CurrentSpeed);
             Console.WriteLine(new string('-',33));
-            MiniVan minivan = new MiniVan(4, 1.4, "Cooper", "fueloil", "Minivan cooper Radio",4)
+            MiniVan minivan = new MiniVan(4, 1.4, "Cooper", "fueloil", "Minivan cooper Radio")
             {
                 ModelMark = "Hachback",
                 Colour = "green",
-                Transmission = Transmission.Automatic, 
+                Transmission = Transmission.Automatic,
+                MaxSpeed = 200,
+                EngineCondition = EngineState.SwitchedOff
             };
 
-            MiniVan miniVan = new MiniVan(2, 1.2, "Citroen", "gazoline", "Minivan citroen Radio",3)
+            MiniVan miniVan = new MiniVan(2, 1.2, "Citroen", "gazoline", "Minivan citroen Radio")
             {
                 ModelMark = "Hachback",
                 Colour = "red",
-                Transmission = Transmission.Automatic
+                Transmission = Transmission.Automatic,
+                MaxSpeed = 190,
+                EngineCondition = EngineState.SwitchedOff
             };
             
             Car[] Holder=new Car[3];
@@ -64,10 +71,11 @@ namespace DZ4
                     SportCar v = (SportCar)Holder[i];
                     v.TurnOnRadio();
                 }
-                Holder[i].Start();
+                Holder[i].StartStop();
                 Console.WriteLine(new string('-', 33));
             }
             Console.WriteLine(new string('-', 33));
+
             for (int i = 0; i < Holder.Length; i++)
             {
                 if (Holder[i] is MiniVan)
@@ -81,9 +89,10 @@ namespace DZ4
                     v.TurnOffRadio();
                 }
                 Console.WriteLine(new string('-', 33));
-                Holder[i].Stop();
+               // Holder[i].StartStop();
                 Console.WriteLine(new string('-', 33));
             }
+
             for (int i = 0; i < Holder.Length; i++)
             {  
                     Holder[i].Accelerate(GasAcceleratorPedal.Halfpush);
@@ -92,9 +101,18 @@ namespace DZ4
                 Console.WriteLine("Power Accelerate: " + Holder[i].CurrentSpeed );
             }
             Console.WriteLine(new string('-', 33));
+
             for (int i = 0; i < Holder.Length; i++)
             {
-                Holder[i].Accelerate(GasAcceleratorPedal.Fullpowerfpush);
+                Holder[i].Accelerate(GasAcceleratorPedal.Halfpush);
+
+
+                Console.WriteLine("Power Accelerate: " + Holder[i].CurrentSpeed);
+            }
+            //максимальне прискорення яке знищуе двигун
+            for (int i = 0; i < 3; i++)
+            {
+                Holder[1].Accelerate(GasAcceleratorPedal.Fullpowerfpush);
 
 
                 Console.WriteLine("Power Accelerate: " + Holder[i].CurrentSpeed);

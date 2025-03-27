@@ -11,6 +11,9 @@ namespace DZ4
     public delegate void AccelerationFormula(double CurrentSpeed,GasAcceleratorPedal pedal);
     public abstract class Car
     {
+        public  event Action EngineFault;
+        private int criticalCondition = 0;
+
         private readonly Radio radio;
         private int DoorAmount { get; }
         private double EngineVolume { get; }
@@ -20,33 +23,64 @@ namespace DZ4
         public string Colour { get; set; }
         public Transmission Transmission { get; init; }
         public double CurrentSpeed { get; protected set; }
-        public Car(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio, double currentSpeed)
+        public double MaxSpeed {  get; init; }
+        public EngineState EngineCondition { get; set; }
+        public Car(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio)
         { 
          this.DoorAmount = doorAmount;
          this.EngineVolume = engineVolume;
          this.Model = model;
          this.FuelType = fuelType;  
          radio = new Radio(markOfRadio);
-         this.CurrentSpeed = currentSpeed;
-            
+         EngineFault += () =>
+         {
+             Console.BackgroundColor = ConsoleColor.Red; 
+             Console.Clear();  
+             Console.ForegroundColor = ConsoleColor.Yellow;
+             Console.WriteLine("Engine is Dead!!! You need to repair your car!");
+             Console.ResetColor();
+         };
         }
+
+       
 
         public virtual void EnginePower()
         {
             Console.WriteLine("NormalPower");
         }
 
-        public abstract void Accelerate( GasAcceleratorPedal pedal);
+        public abstract void Accelerate(GasAcceleratorPedal pedal);
        
 
-        public virtual void Start()
+        public virtual void StartStop()
         {
-            Console.WriteLine("Mechanical start by rotation key");
+            if (EngineCondition == EngineState.SwitchedOn)
+            {
+                if (CurrentSpeed > 0)
+                {
+                    Console.WriteLine("Engine Running");
+                    return;
+                }
+                if (CurrentSpeed == 0)
+                { 
+                 EngineCondition= EngineState.SwitchedOff;
+                }
+            }
+            if (EngineCondition == EngineState.SwitchedOff)
+            { 
+              EngineCondition = EngineState.SwitchedOn;
+                Accelerate(GasAcceleratorPedal.Quarterpush);
+            }
+           
         }
 
-        public  void Stop()
+        public  void Brake()
         {
-           CurrentSpeed = 0;
+            while (CurrentSpeed > 0)
+            { 
+             CurrentSpeed--;
+
+            }
         }
 
         public  void WindowWashing()
@@ -106,23 +140,35 @@ namespace DZ4
            
             switch (pedal)
             {
-                case GasAcceleratorPedal.quarterpush:
-                     CurrentSpeed = Speed * Speed * 2 / 2 + 20;
+                case GasAcceleratorPedal.Quarterpush:
+                     CurrentSpeed = Speed * Speed  / 100 + 20;
                     break;
-                case GasAcceleratorPedal.halfpush:
-                     CurrentSpeed = Speed * Speed * 2 / 2 + 50;
+                case GasAcceleratorPedal.Halfpush:
+                     CurrentSpeed = Speed * Speed  / 100 + 50;
                     break;
-                case GasAcceleratorPedal.halfandquarterpush:
-                     CurrentSpeed = Speed * Speed * 2 / 2 + 75;
+                case GasAcceleratorPedal.Halfandquarterpush:
+                     CurrentSpeed = Speed * Speed  / 100 + 75;
                     break;
-                case GasAcceleratorPedal.fullpowerfpush:
-                     CurrentSpeed = Speed * Speed * 2 / 2 + 100;
+                case GasAcceleratorPedal.Fullpowerfpush:
+                     CurrentSpeed = Speed * Speed  / 4 + 100;
                     break;
                 default:
-                     CurrentSpeed = Speed * Speed * 2 / 2 + 5;
+                     CurrentSpeed = Speed * Speed / 4 + 5;
                     break;
 
 
+            }
+            if (CurrentSpeed > MaxSpeed)
+            {
+                Console.WriteLine("Engine OverLoad");
+                Thread.Sleep(3);
+                criticalCondition++;
+                if (criticalCondition ==3)
+                {
+                    EngineFault?.Invoke();
+                    EngineCondition = EngineState.Malfunctioned;
+                    Brake();
+                }
             }
         }
 
