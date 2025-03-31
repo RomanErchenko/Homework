@@ -11,8 +11,8 @@ namespace DZ4
     public delegate void AccelerationFormula(double CurrentSpeed,GasAcceleratorPedal pedal);
     public abstract class Car
     {
-        public  event Action EngineFault;
-        private int criticalCondition = 0;
+        public abstract event Action EngineFault;
+        protected int criticalCondition = 0;
 
         private readonly Radio radio;
         private int DoorAmount { get; }
@@ -24,6 +24,7 @@ namespace DZ4
         public Transmission Transmission { get; init; }
         public double CurrentSpeed { get; protected set; }
         public double MaxSpeed {  get; init; }
+        public double Distance { get; set; }
         public EngineState EngineCondition { get; set; }
         public Car(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio)
         { 
@@ -158,18 +159,7 @@ namespace DZ4
 
 
             }
-            if (CurrentSpeed > MaxSpeed)
-            {
-                Console.WriteLine("Engine OverLoad");
-                Thread.Sleep(3);
-                criticalCondition++;
-                if (criticalCondition ==3)
-                {
-                    EngineFault?.Invoke();
-                    EngineCondition = EngineState.Malfunctioned;
-                    Brake();
-                }
-            }
+           
         }
 
     }
