@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DZ4
+namespace _12_3
 {
-    public class Radio
+    public class KeyEventArgs:EventArgs
     {
-        public bool Condition { get; set; }
+        public char PresedKey { get; set; }
+
     }
 }

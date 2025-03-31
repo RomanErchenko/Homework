@@ -1,46 +1,53 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DZ4
 {
-    public class MiniVan:Car
+    
+    public class MiniVan: Car
     {
-        public MiniVan(int DoorAmount, double EngineVolume, string Model, string ModelMark, string Colour, string FuelType, Transmission Transmission) : base(DoorAmount, EngineVolume, Model, ModelMark, Colour, FuelType, Transmission)
+        public override event Action EngineFault;
+        public MiniVan(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio)
+        : base(doorAmount, engineVolume, model, fuelType, markOfRadio)
         {
-            Accelerate();
-            EnginePower();
-            Start();
-            Stop();
-            Show();
+            EngineFault += () =>
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Engine is Dead!!! You need to repair your car!");
+                Console.ResetColor();
+            };
         }
-        public override void Accelerate()
+
+        public override void Accelerate(GasAcceleratorPedal pedal)
         {
-            Console.WriteLine("Normal speed");
+            if (EngineCondition == EngineState.SwitchedOn)
+            {
+                AccelerationFormula formula = new AccelerationFormula(Formula);
+                formula.Invoke(CurrentSpeed, pedal);
+            }
+            if (CurrentSpeed > MaxSpeed)
+            {
+                Console.WriteLine("Engine OverLoad");
+                Thread.Sleep(3);
+                criticalCondition++;
+                if (criticalCondition == 3)
+                {
+                    EngineFault?.Invoke();
+                    EngineCondition = EngineState.Malfunctioned;
+                }
+            }
         }
+
         public override void EnginePower()
         {
            base.EnginePower();
-        }
-
-        public void TurnOnRadio()
-        { 
-         Radio.Condition=true;
-         if (Radio.Condition == true)
-            {
-                Console.WriteLine("Radion is on");
-            }
-        
-        }
-        public void TurnOFFRadio()
-        {
-            Radio.Condition = false;
-            if (Radio.Condition == true)
-            {
-                Console.WriteLine("Radion is off");
-            }
         }
     }
 }
