@@ -191,7 +191,15 @@ namespace DZ4
             thread3.Start(mini);
             thread4.Start(miniVan);
             thread5.Start(minivan);
+            Console.WriteLine(new string('-',30));
 
+            Garage<Car> cars = new Garage<Car>() {sportCar,BmwSport,mini,miniVan,minivan };
+            foreach (var car in cars)
+            {
+                if (car!=null)
+                car.GarageInfo();
+               
+            }
             Console.ReadKey();
         }
     }

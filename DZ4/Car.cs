@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -88,7 +89,12 @@ namespace DZ4
         {
             Console.WriteLine("Window washing");
         }
-
+        public void GarageInfo()
+        {
+            Console.WriteLine($" об'єм двигуна:{EngineVolume} ");
+            Console.WriteLine($" колір:{Colour} ");
+            Console.WriteLine($" кол-во дверей:{DoorAmount}");
+        }
         public virtual void Show()
         {
             Console.WriteLine(DoorAmount);

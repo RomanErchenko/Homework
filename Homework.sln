@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dz13-1", "dz13-1\dz13-1.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dz13-2", "Dz13-2\Dz13-2.csproj", "{DDFC32AC-60D8-4FA5-A716-356C2E8F13F8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dz14-1", "Dz14-1\Dz14-1.csproj", "{4D26E7AD-1370-498F-8489-E3D76168CFC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DZ14-2", "DZ14-2\DZ14-2.csproj", "{1C985DA4-8163-4381-919F-5F29634663D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +121,14 @@ Global
 		{DDFC32AC-60D8-4FA5-A716-356C2E8F13F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDFC32AC-60D8-4FA5-A716-356C2E8F13F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDFC32AC-60D8-4FA5-A716-356C2E8F13F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D26E7AD-1370-498F-8489-E3D76168CFC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D26E7AD-1370-498F-8489-E3D76168CFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D26E7AD-1370-498F-8489-E3D76168CFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D26E7AD-1370-498F-8489-E3D76168CFC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C985DA4-8163-4381-919F-5F29634663D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C985DA4-8163-4381-919F-5F29634663D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C985DA4-8163-4381-919F-5F29634663D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C985DA4-8163-4381-919F-5F29634663D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
