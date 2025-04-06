@@ -104,7 +104,7 @@ namespace DZ4
                 ModelMark = "Nissan-Minivan",
                 Colour = "red",
                 Transmission = Transmission.Automatic,
-                MaxSpeed = 230,
+                MaxSpeed = 20,
                 EngineCondition = EngineState.SwitchedOff
             };
 
@@ -191,7 +191,15 @@ namespace DZ4
             thread3.Start(mini);
             thread4.Start(miniVan);
             thread5.Start(minivan);
+            Console.WriteLine(new string('-',30));
 
+            Garage cars = new Garage() {sportCar,BmwSport,mini,miniVan,minivan };
+            foreach ( Car car in cars)
+            {
+                if (car!=null)
+                car.GarageInfo();
+               
+            }
             Console.ReadKey();
         }
     }

@@ -34,10 +34,20 @@ namespace DZ4
                 Console.WriteLine("Engine OverLoad");
                 Thread.Sleep(3);
                 criticalCondition++;
-                if (criticalCondition == 5)
+                try
                 {
-                    EngineFault?.Invoke();
-                    EngineCondition = EngineState.Malfunctioned;
+                    if (criticalCondition == 5)
+                    {
+                        EngineFault?.Invoke();
+                        EngineCondition = EngineState.Malfunctioned;
+                        throw new CarDeadEngine(CurrentSpeed, EngineInfo, "MyExceptionA");
+                    }
+                }
+                catch (CarDeadEngine ex)
+                {
+                    
+                    Console.WriteLine(ex.Message);
+                    ex.Show();
                 }
             }
         }
