@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace DZ4
 {
-    public class Garage<T>:IEnumerable<T>,IEnumerator<T>
+    public class Garage:IEnumerable,IEnumerator
     {
-        private T[] items;
+        private Car [] items;
         private int count = 0;
         public Garage()
         {
-            items = new T[10];
+            items = new Car[10];
         }
-        public T this[int index]
+        public Car this[int index]
         {
             get { return items[index]; }
             set { items[index] = value; }
@@ -42,27 +42,19 @@ namespace DZ4
             get { return items[position]; }
         }
 
-        T IEnumerator<T>.Current
-        {
-            get { return items[position]; }
-        }
-
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this;
         }
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            return this;
-        }
-        public void Add(T elem)
+      
+        public void Add(Car elem)
         {
             items[count] = elem;
             count++;
 
         }
-        void IDisposable.Dispose()
+        void Dispose()
         {
             Reset();
         }
