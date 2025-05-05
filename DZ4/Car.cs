@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -18,32 +20,32 @@ namespace DZ4
         private int DoorAmount { get; }
         private double EngineVolume { get; }
         private string Model { get; }
-        private string FuelType { get;}
+        private string FuelType { get; }
         public string ModelMark { get; init; }
         public string Colour { get; set; }
         public Transmission Transmission { get; init; }
         public double CurrentSpeed { get; protected set; }
-        public double MaxSpeed {  get; init; }
+        public double MaxSpeed { get; init; }
         public double Distance { get; set; }
         public EngineState EngineCondition { get; set; }
         public Car(int doorAmount, double engineVolume, string model, string fuelType, string markOfRadio)
-        { 
-         this.DoorAmount = doorAmount;
-         this.EngineVolume = engineVolume;
-         this.Model = model;
-         this.FuelType = fuelType;  
-         radio = new Radio(markOfRadio);
-         EngineFault += () =>
-         {
-             Console.BackgroundColor = ConsoleColor.Red; 
-             Console.Clear();  
-             Console.ForegroundColor = ConsoleColor.Yellow;
-             Console.WriteLine("Engine is Dead!!! You need to repair your car!");
-             Console.ResetColor();
-         };
+        {
+            this.DoorAmount = doorAmount;
+            this.EngineVolume = engineVolume;
+            this.Model = model;
+            this.FuelType = fuelType;
+            radio = new Radio(markOfRadio);
+            EngineFault += () =>
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Engine is Dead!!! You need to repair your car!");
+                Console.ResetColor();
+            };
         }
 
-       
+
 
         public virtual void EnginePower()
         {
@@ -51,7 +53,7 @@ namespace DZ4
         }
 
         public abstract void Accelerate(GasAcceleratorPedal pedal);
-       
+
 
         public virtual void StartStop()
         {
@@ -63,32 +65,37 @@ namespace DZ4
                     return;
                 }
                 if (CurrentSpeed == 0)
-                { 
-                 EngineCondition= EngineState.SwitchedOff;
+                {
+                    EngineCondition = EngineState.SwitchedOff;
                 }
             }
             if (EngineCondition == EngineState.SwitchedOff)
-            { 
-              EngineCondition = EngineState.SwitchedOn;
+            {
+                EngineCondition = EngineState.SwitchedOn;
                 Accelerate(GasAcceleratorPedal.Quarterpush);
             }
-           
+
         }
 
-        public  void Brake()
+        public void Brake()
         {
             while (CurrentSpeed > 0)
-            { 
-             CurrentSpeed--;
+            {
+                CurrentSpeed--;
 
             }
         }
 
-        public  void WindowWashing()
+        public void WindowWashing()
         {
             Console.WriteLine("Window washing");
         }
-
+        public void GarageInfo()
+        {
+            Console.WriteLine($" об'єм двигуна:{EngineVolume} ");
+            Console.WriteLine($" колір:{Colour} ");
+            Console.WriteLine($" кол-во дверей:{DoorAmount}");
+        }
         public virtual void Show()
         {
             Console.WriteLine(DoorAmount);
@@ -129,13 +136,13 @@ namespace DZ4
         }
 
         public string RadioMark()
-        { return radio.MarkOfRadio;}
+        { return radio.MarkOfRadio; }
         public double SpeedUp()
         {
             return CurrentSpeed * 1.15 + 15;
         }
 
-
+        public double EngineInfo { get { return EngineVolume; } }
         public void Formula(double Speed, GasAcceleratorPedal pedal)
         {
            
@@ -159,6 +166,7 @@ namespace DZ4
 
 
             }
+            
            
         }
 
