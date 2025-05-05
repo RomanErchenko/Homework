@@ -108,6 +108,13 @@ namespace DZ4
                 EngineCondition = EngineState.SwitchedOff
             };
 
+            MyGarage cars1 = new MyGarage();
+            cars1.AddCar(minivan);
+            foreach (var car in cars1)
+            {
+             Console.WriteLine(car.Colour);
+            }
+
             //Car[] Holder=new Car[3];
             //Holder[0]=sportCar;
             //Holder[1]=minivan;

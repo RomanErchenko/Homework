@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dz14-1", "Dz14-1\Dz14-1.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DZ14-2", "DZ14-2\DZ14-2.csproj", "{1C985DA4-8163-4381-919F-5F29634663D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLinkedList", "MyLinkedList\MyLinkedList.csproj", "{3880AD44-C9C9-49A3-B291-D0C71AB973E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{1C985DA4-8163-4381-919F-5F29634663D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C985DA4-8163-4381-919F-5F29634663D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C985DA4-8163-4381-919F-5F29634663D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3880AD44-C9C9-49A3-B291-D0C71AB973E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3880AD44-C9C9-49A3-B291-D0C71AB973E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3880AD44-C9C9-49A3-B291-D0C71AB973E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3880AD44-C9C9-49A3-B291-D0C71AB973E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
