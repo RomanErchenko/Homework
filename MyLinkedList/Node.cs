@@ -10,11 +10,13 @@ namespace MyLinkedList
     {
         public T Value;
         public Node<T> Next;
+        public Node<T> Previous;
 
         public Node(T value)
         {
             Value = value;
             Next = null;
+            Previous = null;
         }
     }
 }

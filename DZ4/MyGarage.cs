@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 
 namespace DZ4
 {
-    public class MyGarage:IEnumerable<Car>,IEnumerator<Car>
+    public class MyGarage : IEnumerable<Car>, IEnumerator<Car>
     {
 
-        private List<Car> cars = new List<Car>();
+        private readonly Car[] cars = new Car[10];
         private int position = -1;
-       
-        public void AddCar(Car car)
+        private int count = 0;
+
+        public void Add(Car elem)
         {
-            cars.Add(car);
+            cars[count] = elem;
+            count++;
+
         }
 
-        
+
         public IEnumerator<Car> GetEnumerator()
         {
             position = -1; 
@@ -37,8 +40,12 @@ namespace DZ4
 
         public bool MoveNext()
         {
-            position++;
-            return (position < cars.Count);
+            if (position < cars.Length - 1)
+            {
+                position++;
+                return true;
+            }
+            return false;
         }
 
         public void Reset()
